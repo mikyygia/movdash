@@ -10,7 +10,7 @@ export default function Summary () {
                 </li>
 
                 <li>
-                    <h3>average content score</h3>
+                    <h3>average rating score</h3>
                     <p>0.0</p>
                 </li>
 

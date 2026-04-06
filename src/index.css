@@ -1,12 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap');
 
-body, h1, p, ul, h3 {
+h1, p, ul, h3 {
     margin: 0;
     padding: 0;
     font-weight: 100;
     font-family: "Instrument Serif", serif;
     color: #4B3720;
 }
+
+/* NAV BAR STYLING */
 
 .nav-bar {
     display: flex;
@@ -32,13 +34,14 @@ li {
     margin-bottom: 10px;
 }
 
+/* SUMMARY STYLING */
+
 .summary {
     display: flex;
     flex-direction: column;
     text-align: left;
         margin: 36px 12px;
 }
-
 
 .summary-stats {
     display: flex;
@@ -58,6 +61,8 @@ li {
     margin-top: 16px;
 }
 
+/* MOVIE LIST STYLING */
+
 .search-header {
     display: flex;
     gap: 16px;
@@ -67,15 +72,25 @@ li {
 .search-bar {
     border-radius: 26px;
     border: 1px solid black;
-    padding: 4px 16px;
+    padding: 8px 16px;
     font-style: italic;
+    width: 15vw;
+}
+
+.search-enter-btn {
+    border: 1px solid black;
+    padding: 2px 8px;
+    margin-left: 4px;
+}
+
+.search-enter-btn:hover {
+    cursor: pointer;
 }
 
 .movie-row {
     border: 1px solid black;
     padding: 8px 12px ;
-    /* width: 100vw; */
-    width: 100vw;
+    width: 100%;
 }
 
 .movie-row th {
@@ -84,4 +99,24 @@ li {
 
 .movie-row td {
     margin: 0 12px;
+    overflow: auto; /* idk what this does tbh */
 }
+
+/* FILTERS */
+
+.filters {
+    display: flex;
+    gap: 10px;
+}
+
+.filters div {
+    border: 1px solid black;
+    padding: 1px 8px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.filter-year {
+    width: 50px;
+}
+

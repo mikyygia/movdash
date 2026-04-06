@@ -46,14 +46,20 @@ Here's a walkthrough of implemented user stories:
 
 GIF created with ...
 
-<!-- Recommended tools:
-[Kap](https://getkap.co/) for macOS
-[ScreenToGif](https://www.screentogif.com/) for Windows
-[peek](https://github.com/phw/peek) for Linux. -->
-
 ## Notes
 
-Describe any challenges encountered while building the app.
+### Genres you can filter by:
+
+- get popular movies by default (by day or week)
+- choose to get trending movies
+  - filter by title
+  - filter by genre
+  - filter by year
+  - filter whether movie is adult
+
+### Difficulties
+
+I didn't know what was wrong when I imported my api keys incorrected. There was no runtime errors and nothing rendered.
 
 ## License
 

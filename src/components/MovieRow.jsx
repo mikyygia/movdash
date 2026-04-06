@@ -2,6 +2,7 @@ import "../index.css"
 
 export default function MovieRow () {
     return (
+        // hardcoded data for now
         <div>
             <table className="movie-row">
                 <tr>
