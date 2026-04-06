@@ -7,7 +7,7 @@ export default function MovieList ( {onFetchMovies, allGenres} ) {
                 <h1 className="section-header">movie list</h1>
 
                 <div className="search">
-                    <input className="search-bar" type="text" name="search" id="search" placeholder="search for a movie" />
+                    {/* <input className="search-bar" type="text" name="search" id="search" placeholder="search for a movie" /> */}
                     <button className="search-enter-btn" onClick={onFetchMovies}>enter</button>
                 </div>
             </div>

@@ -42,6 +42,7 @@ function App() {
   return (
     <div>
       <NavBar />
+      <Summary />
       <h1>testing</h1>
 
       {console.log(movies.results)}
@@ -56,8 +57,7 @@ function App() {
       )}
 
       <div>
-        <Summary />
-        <MovieList onFetchMovies={fetchMovie}/>
+        {/* <MovieList onFetchMovies={fetchMovie}/> */}
       </div>
     </div>
   )
