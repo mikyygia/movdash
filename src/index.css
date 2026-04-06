@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap');
+
+body, h1, p, ul, h3 {
+    margin: 0;
+    padding: 0;
+    font-weight: 100;
+    font-family: "Instrument Serif", serif;
+    color: #4B3720;
+}
+
+.nav-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 26px;
+    font-size: 1.2em;
+}
+
+.nav-links {
+    display: flex;
+    gap: 16px;
+}
+
+li {
+    list-style-type: none;
+}
+
+.section-header {
+    text-decoration: underline;
+    text-decoration-thickness: 2px; 
+    text-underline-offset: 3px; 
+    margin-bottom: 10px;
+}
+
+.summary {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+        margin: 36px 12px;
+}
+
+
+.summary-stats {
+    display: flex;
+    gap: 16px;
+}
+
+.summary-stats li {
+    border: 1px black solid;
+    border-radius: 0.7em;
+    padding: 26px;
+    flex: 1;
+}
+
+.summary-stats li p {
+    text-align: center;
+    font-size: 2em;
+    margin-top: 16px;
+}
+
+.search-header {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+
+.search-bar {
+    border-radius: 26px;
+    border: 1px solid black;
+    padding: 4px 16px;
+    font-style: italic;
+}
+
+.movie-row {
+    border: 1px solid black;
+    padding: 8px 12px ;
+    /* width: 100vw; */
+    width: 100vw;
+}
+
+.movie-row th {
+    text-align: left;
+}
+
+.movie-row td {
+    margin: 0 12px;
+}
