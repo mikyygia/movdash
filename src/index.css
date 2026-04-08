@@ -81,10 +81,14 @@ li {
     border: 1px solid black;
     padding: 2px 8px;
     margin-left: 4px;
+    background-color: beige;
+    
 }
 
 .search-enter-btn:hover {
     cursor: pointer;
+    background-color: aliceblue;
+    scale: 1.1;
 }
 
 .movie-row {
@@ -111,12 +115,27 @@ li {
 
 .filters div {
     border: 1px solid black;
-    padding: 1px 8px;
-    border-radius: 8px;
+    padding: 2px 8px;
+    border-radius: 26px;
     margin-bottom: 10px;
+}
+
+.view-type {
+    padding: 16px;
 }
 
 .filter-year {
     width: 50px;
 }
 
+select {
+    /* border: 1px solid black; */
+    border: 0;
+}
+
+input {
+    /* border: 1px solid black; */
+    border: 0;
+    background-color: #D9D9D9;
+    border-radius: 26px;
+}

@@ -10,13 +10,15 @@ Time spent: **X** hours spent in total
 
 The following **required** functionality is completed:
 
-- [ ] **The site has a dashboard displaying a list of data fetched using an API call**
+- [x] **The site has a dashboard displaying a list of data fetched using an API call**
   - The dashboard should display at least 10 unique items, one per row
   - The dashboard includes at least two features in each row
-- [ ] **`useEffect` React hook and `async`/`await` are used**
-- [ ] **The app dashboard includes at least three summary statistics about the data**
+- [x] **`useEffect` React hook and `async`/`await` are used**
+- [x] **The app dashboard includes at least three summary statistics about the data**
   - The app dashboard includes at least three summary statistics about the data, such as:
-    - _insert details here_
+    - total movies fetched
+    - weighted average of movie rating score
+    - top 3 most common movie genres from the movie fetched
 - [ ] **A search bar allows the user to search for an item in the fetched data**
   - The search bar **correctly** filters items in the list, only displaying items matching the search query
   - The list of results dynamically updates as the user types into the search bar
@@ -27,10 +29,10 @@ The following **required** functionality is completed:
 
 The following **optional** features are implemented:
 
-- [ ] Multiple filters can be applied simultaneously
-- [ ] Filters use different input types
+- [x] Multiple filters can be applied simultaneously
+- [x] Filters use different input types
   - e.g., as a text input, a dropdown or radio selection, and/or a slider
-- [ ] The user can enter specific bounds for filter values
+- [x] The user can enter specific bounds for filter values
 
 The following **additional** features are implemented:
 
@@ -49,13 +51,6 @@ GIF created with ...
 ## Notes
 
 ### Genres you can filter by:
-
-- get popular movies by default (by day or week)
-- choose to get trending movies
-  - filter by title
-  - filter by genre
-  - filter by year
-  - filter whether movie is adult
 
 ### Difficulties
 

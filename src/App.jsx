@@ -18,16 +18,20 @@ const options = {
 function App() {
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [genreList, setGenreList] = useState([]);
 
   const fetchMovie = async () => {
     setLoading(true);
 
     try {
-      const res = await fetch("https://api.themoviedb.org/3/movie/popular", options);
-      const data = await res.json();
+      const movieRes = await fetch("https://api.themoviedb.org/3/movie/popular", options);
+      const movieData = await movieRes.json();
 
-      setMovies(data);
-      console.log(movies);
+      const genreRes = await fetch("https://api.themoviedb.org/3/genre/movie/list", options);
+      const genreData = await genreRes.json();
+
+      setMovies(movieData);
+      setGenreList(genreData);
     } catch (error) {
       console.log(error);
     } finally {
@@ -42,23 +46,24 @@ function App() {
   return (
     <div>
       <NavBar />
-      <Summary />
-      <h1>testing</h1>
-
+      <Summary movieData={movies} genreList={genreList}/>
       {console.log(movies.results)}
 
-      { movies.results?.map((mov, index) => {
+      <div>
+        <MovieList onFetchMovies={fetchMovie}/>
+      </div>
+
+      { movies.results?.map((mov, _) => {
         return (
-            <div key={index}>
+            <div key={mov.id}>
+              {/* {console.log(mov.title + " has id: " + mov.id)} */}
               <p>{mov.title}</p>
             </div>
         );
       }
       )}
 
-      <div>
-        {/* <MovieList onFetchMovies={fetchMovie}/> */}
-      </div>
+      
     </div>
   )
 }
