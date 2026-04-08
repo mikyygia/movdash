@@ -2,9 +2,9 @@
 
 Submitted by: Nhi
 
-This web app: Mini movie dashboard viewer
+This web app: Mini popular movie dashboard viewer
 
-Time spent: **X** hours spent in total
+Time spent: **10** hours spent in total
 
 ## Required Features
 
@@ -19,10 +19,10 @@ The following **required** functionality is completed:
     - total movies fetched
     - weighted average of movie rating score
     - top 3 most common movie genres from the movie fetched
-- [ ] **A search bar allows the user to search for an item in the fetched data**
+- [x] **A search bar allows the user to search for an item in the fetched data**
   - The search bar **correctly** filters items in the list, only displaying items matching the search query
   - The list of results dynamically updates as the user types into the search bar
-- [ ] **An additional filter allows the user to restrict displayed items by specified categories**
+- [x] **An additional filter allows the user to restrict displayed items by specified categories**
   - The filter restricts items in the list using a **different attribute** than the search bar
   - The filter **correctly** filters items in the list, only displaying items matching the filter attribute in the dashboard
   - The dashboard list dynamically updates as the user adjusts the filter
@@ -36,7 +36,7 @@ The following **optional** features are implemented:
 
 The following **additional** features are implemented:
 
-- [ ] List anything else that you added to improve the site's functionality!
+- [x] Able to switch between list and table view
 
 ## Video Walkthrough
 
@@ -44,17 +44,14 @@ Here's a walkthrough of implemented user stories:
 
 <img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
-<!-- Replace this with whatever GIF tool you used! -->
-
 GIF created with ...
 
 ## Notes
 
-### Genres you can filter by:
-
 ### Difficulties
 
-I didn't know what was wrong when I imported my api keys incorrected. There was no runtime errors and nothing rendered.
+- I didn't know what was wrong when I imported my api keys incorrected. There was no runtime errors and nothing rendered.
+- The filters makes this a very tedious process but helped understand the type of data and its correct usage.
 
 ## License
 

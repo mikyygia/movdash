@@ -24,7 +24,7 @@ const getGenreById = (idList, refList) => {
         .map((genre) => genre.name);
 }
 
-export default function Summary ({movieData, genreList}) {
+export default function Summary ({movieData, genreList, filteredMovies}) {
     return (
         <div className="summary">
             <h1 className="section-header">summary</h1>
@@ -35,13 +35,18 @@ export default function Summary ({movieData, genreList}) {
                 </li>
 
                 <li>
+                    <h3>total movies shown</h3>
+                    <p>{filteredMovies?.length || 0}</p>
+                </li>
+
+                <li>
                     <h3>average rating score</h3>
-                    <p>{findAverage(movieData.results).toFixed(2)}</p>
+                    <p>{findAverage(filteredMovies).toFixed(2)}</p>
                 </li>
 
                 <li>
                     <h3>most common genre</h3>
-                    <p>{getGenreById(findTop3GenresID(movieData.results), genreList)?.join(", ") || ""}</p>
+                    <p>{getGenreById(findTop3GenresID(filteredMovies), genreList)?.join(", ") || ""}</p>
                 </li>
             </ul>
         </div>

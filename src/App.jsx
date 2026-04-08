@@ -20,6 +20,13 @@ function App() {
   const [loading, setLoading] = useState(false);
   const [genreList, setGenreList] = useState([]);
   const [isListView, setListview] = useState(true); 
+  const [filters, setFilters] = useState({
+    genre: "All",
+    minYear: "",
+    maxYear: "",
+    adult: false
+  });
+  const [searchQuery, setSearchQuery] = useState("");
 
   const fetchMovie = async () => {
     setLoading(true);
@@ -40,6 +47,47 @@ function App() {
     }
   }
 
+  // Filter movies based on current filter state
+  const getFilteredMovies = () => {
+    if (!movies.results) return [];
+    
+    return movies.results.filter(movie => {
+      // Genre filter
+      if (filters.genre !== "All" && !movie.genre_ids?.includes(parseInt(filters.genre))) {
+        return false;
+      }
+      
+      // Year filters
+      const releaseYear = movie.release_date ? new Date(movie.release_date).getFullYear() : null;
+      if (filters.minYear && releaseYear && releaseYear < parseInt(filters.minYear)) {
+        return false;
+      }
+      if (filters.maxYear && releaseYear && releaseYear > parseInt(filters.maxYear)) {
+        return false;
+      }
+      
+      // Adult filter
+      if (!filters.adult && movie.adult) {
+        return false;
+      }
+      
+      return true;
+    });
+  };
+
+  // Search movies by title (bypasses all filters)
+  const getSearchResults = () => {
+    if (!movies.results || !searchQuery.trim()) return null;
+    
+    return movies.results.filter(movie => 
+      movie.title.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+  };
+
+  const filteredMovies = getFilteredMovies();
+  const searchResults = getSearchResults();
+  const displayMovies = searchResults !== null ? searchResults : filteredMovies;
+
   useEffect(() => {
     fetchMovie();
   }, []);
@@ -52,7 +100,27 @@ function App() {
         <p>loding....</p>
       : (
       <div>
-        <Summary movieData={movies} genreList={genreList}/>
+        {/* Search Bar */}
+        <div className="search-bar-container">
+          <input
+            type="text"
+            placeholder="search ..."
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            className="search-input"
+          />
+          {searchQuery && (
+            <button 
+              onClick={() => setSearchQuery("")}
+              className="clear-search-btn"
+            >
+              Clear
+            </button>
+          )}
+        </div>
+        
+        {/* SUMMARY STATS */}
+        <Summary movieData={movies} genreList={genreList} filteredMovies={displayMovies}/>
         {console.log(movies.results)}
 
         <div className="search-header">
@@ -65,18 +133,20 @@ function App() {
                 <button className="search-enter-btn" onClick={fetchMovie}>search</button>
             </div>
         </div>
-
+        
+        {/* FILTERS TO SELECT FROM */}
         <MovieFilters 
-          onFetchMovies={fetchMovie} 
           genreList={genreList}
-          viewChange={setListview}
+          filters={filters}
+          setFilters={setFilters}
         />
 
         <div>
           {
             isListView ? 
+            // LIST VIEW
             <div>
-              {movies.results?.map((mov) => {
+              {displayMovies.map((mov) => {
                 return (
                     <div key={mov.id}>
                       <p>{mov.title}</p>
@@ -85,8 +155,9 @@ function App() {
               })}
             </div>
           :
+            // TABLE VIEW
             <div>
-                <MovieTable movies={movies} genreList={genreList} />
+                <MovieTable movies={{...movies, results: displayMovies}} genreList={genreList} />
             </div>
           }
         </div>
