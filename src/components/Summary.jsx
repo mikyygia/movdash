@@ -28,9 +28,6 @@ export default function Summary ({movieData, genreList}) {
     return (
         <div className="summary">
             <h1 className="section-header">summary</h1>
-
-            {/* {console.log("data",movieData)} */}
-
             <ul className="summary-stats">
                 <li>
                     <h3>total movies fetched</h3>

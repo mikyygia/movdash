@@ -1,10 +1,10 @@
 import './App.css'
 import NavBar from './components/NavBar'
 import Summary from './components/Summary'
-import MovieList from './components/MovieList'
+import MovieFilters from './components/MovieFilters'
 import { useState, useEffect } from 'react'
+import MovieTable from './components/MovieTable'
 
-const API_KEY = import.meta.env.VITE_APP_API_KEY;
 const API_TOKEN = import.meta.env.VITE_APP_API_READ_ACCESS_TOKEN;
 
 const options = {
@@ -19,6 +19,7 @@ function App() {
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(false);
   const [genreList, setGenreList] = useState([]);
+  const [isListView, setListview] = useState(true); 
 
   const fetchMovie = async () => {
     setLoading(true);
@@ -46,24 +47,50 @@ function App() {
   return (
     <div>
       <NavBar />
-      <Summary movieData={movies} genreList={genreList}/>
-      {console.log(movies.results)}
 
+      { loading ? 
+        <p>loding....</p>
+      : (
       <div>
-        <MovieList onFetchMovies={fetchMovie}/>
-      </div>
+        <Summary movieData={movies} genreList={genreList}/>
+        {console.log(movies.results)}
 
-      { movies.results?.map((mov, _) => {
-        return (
-            <div key={mov.id}>
-              {/* {console.log(mov.title + " has id: " + mov.id)} */}
-              <p>{mov.title}</p>
+        <div className="search-header">
+            <h1 className="section-header">movie list</h1>
+
+            <button onClick={() => setListview(true)}>list</button>
+            <button onClick={() => setListview(false)}>table</button>
+
+            <div className="search">
+                <button className="search-enter-btn" onClick={fetchMovie}>search</button>
             </div>
-        );
-      }
-      )}
+        </div>
 
-      
+        <MovieFilters 
+          onFetchMovies={fetchMovie} 
+          genreList={genreList}
+          viewChange={setListview}
+        />
+
+        <div>
+          {
+            isListView ? 
+            <div>
+              {movies.results?.map((mov) => {
+                return (
+                    <div key={mov.id}>
+                      <p>{mov.title}</p>
+                    </div>
+                );
+              })}
+            </div>
+          :
+            <div>
+                <MovieTable movies={movies} genreList={genreList} />
+            </div>
+          }
+        </div>
+      </div>)}
     </div>
   )
 }
