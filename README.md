@@ -42,9 +42,10 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<a href="https://imgur.com/a/8v8eNwP">video walkthrough</a>
 
-GIF created with ...
+<img src="./src/assets/example-list.png" alt="screenshot of dashboard - list view"/>
+<img src="./src/assets/example-table.png" alt="screenshot of dashboard - table view"/>
 
 ## Notes
 
