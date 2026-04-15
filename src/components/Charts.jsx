@@ -100,6 +100,38 @@ export default function Charts({ movies, genreList }) {
       </div>
 
       <div className="chart-item">
+        <h3>Rating vs Budget (Sample)</h3>
+        <p style={{fontSize: '12px', color: '#666', marginBottom: '8px'}}>
+          Shows budget data for first 10 movies (fetched individually)
+        </p>
+        <ResponsiveContainer width="100%" height={300}>
+          <ScatterChart data={ratingBudgetData}>
+            <CartesianGrid />
+            <XAxis
+              type="number"
+              dataKey="budget"
+              name="Budget (M$)"
+              label={{ value: 'Budget (Millions $)', position: 'insideBottom', offset: -5 }}
+            />
+            <YAxis
+              type="number"
+              dataKey="rating"
+              name="Rating"
+              label={{ value: 'Rating', angle: -90, position: 'insideLeft' }}
+            />
+            <Tooltip
+              formatter={(value, name) => [
+                name === 'budget' ? `$${value}M` : value,
+                name === 'budget' ? 'Budget' : 'Rating'
+              ]}
+              labelFormatter={(label, payload) => payload?.[0]?.payload?.title || ''}
+            />
+            <Scatter dataKey="rating" fill="#82ca9d" />
+          </ScatterChart>
+        </ResponsiveContainer>
+      </div>
+
+      <div className="chart-item">
         <h3>Genre Distribution</h3>
         <ResponsiveContainer width="100%" height={350}>
           <PieChart>
