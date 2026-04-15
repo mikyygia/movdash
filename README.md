@@ -34,7 +34,7 @@ The following **additional** features are implemented:
 
 ## Video Walkthrough
 
-<a href="https://imgur.com/a/hXSyUR3">video walkthrough</a>
+<a href="https://imgur.com/a/bH8nSLf">video walkthrough</a>
 <img src="./src/assets/view+charts.png" alt="view and data visualizations"/>
 
 ## Notes
