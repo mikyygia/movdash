@@ -1,4 +1,5 @@
 import "../index.css"
+import { Link } from 'react-router-dom'
 
 export default function NavBar () {
     return (
@@ -6,7 +7,7 @@ export default function NavBar () {
             <h1>movdash - popular movies</h1>
 
             <ul className="nav-links">
-                <li>dashboard</li>
+                <li><Link to="/">dashboard</Link></li>
                 <li>about</li>
             </ul>
         </div>

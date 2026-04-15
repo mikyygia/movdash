@@ -1,4 +1,5 @@
 import "../index.css"
+import { useNavigate } from 'react-router-dom'
 
 const getGenreNames = (genreIds = [], genres = []) => {
     if (!genreIds?.length || !genres?.length) return "N/A";
@@ -10,6 +11,7 @@ const getGenreNames = (genreIds = [], genres = []) => {
 
 
 export default function MovieTable({ movies, genreList }) {
+    const navigate = useNavigate();
     const results = movies?.results ?? [];
 
     if (!results.length) {
@@ -30,7 +32,7 @@ export default function MovieTable({ movies, genreList }) {
                 </thead>
                 <tbody>
                     {results.map((mov) => (
-                        <tr key={mov.id} className="movie-row">
+                        <tr key={mov.id} className="movie-row" onClick={() => navigate(`/movie/${mov.id}`)} style={{cursor: 'pointer'}}>
                             <td>
                                 {mov.poster_path ? (
                                     <img
