@@ -4,7 +4,7 @@ Submitted by: **Nhi**
 
 This web app: a simple popular movie dashboard with data visualizations
 
-Time spent: **2** hours spent in total
+Time spent: **12** hours spent in total
 
 ## Required Features
 
